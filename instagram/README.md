@@ -5,6 +5,7 @@
     + npm install @material-ui/core
     + npm i firebase
     + npm install -g firebase-tools
+    
 
 # Getting Started with Create React App
 

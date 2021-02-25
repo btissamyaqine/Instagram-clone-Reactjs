@@ -95,11 +95,7 @@ function App() {
   }
   return (
     <div className="App">
-      {user?.displayName ? (
-        <ImageUpload username={user.displayName} />
-      ): (
-        <h3>Sorry you need to login to upload</h3>
-      )}
+    
       <Modal
         open={openSignIn}
         onClose={() => setOpenSignIn(false)}
@@ -107,7 +103,7 @@ function App() {
            <div style={modalStyle} className={classes.paper}>
              <form className="app__signup">
               <center>
-                <Header />
+                <Header/>
               </center>
                 <Input
                   placeholder="email"
@@ -126,8 +122,13 @@ function App() {
            </div>
       </Modal>
       {/* Header */}
-        <Header />
-        {user ? (
+        <div className="app__header">
+            <img
+                className="app__headerImage"
+                src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+                alt=""
+            />
+            {user ? (
         <Button onClick={() => auth.signOut()}>Logout</Button>
 
         ): (
@@ -137,24 +138,14 @@ function App() {
 
           </div>
         )}
+        </div>
+        
       {/* Posts */}
       {posts.map(({id, post}) => (
         <Post key={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
       )) 
       };
-      {/* <Post 
-        username="btissamyaqine" 
-        caption="Am btissam" 
-        imageUrl="https://image.shutterstock.com/image-photo/beauty-portrait-female-model-natural-260nw-564737908.jpg"/>
-      <Post 
-        username="IssamELFERKH" 
-        caption="WOW it's Work" 
-        imageUrl="https://www.freecodecamp.org/news/content/images/size/w2000/2020/02/Ekran-Resmi-2019-11-18-18.08.13.png" />
-      <Post 
-        username="BlablaBLA" 
-        caption="Am Blabla" 
-        imageUrl="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg"/> */}
-
+      
     </div>
   );
 }

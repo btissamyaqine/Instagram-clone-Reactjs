@@ -7,6 +7,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal"; 
 import {Button, Input} from "@material-ui/core";
 import ImageUpload from "./ImageUpload";
+import InstagramEmbed from 'react-instagram-embed';
+
 
 function getModalStyle() {
   const top = 50;
@@ -95,7 +97,6 @@ function App() {
   }
   return (
     <div className="App">
-    
       <Modal
         open={openSignIn}
         onClose={() => setOpenSignIn(false)}
@@ -139,13 +140,31 @@ function App() {
           </div>
         )}
         </div>
-        
+        <div className="app__posts">
+          {
+          posts.map(({id, post}) => (
+            <Post key={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
+          )) 
+          }
+          {user?.displayName ? (<ImageUpload username={user.displayName} />)
+          : (
+            <h3>Sorry you need to login to upload</h3>
+          )}
+        </div>
       {/* Posts */}
-      {posts.map(({id, post}) => (
-        <Post key={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
-      )) 
-      };
-      
+      <InstagramEmbed
+        url='https://i.insider.com/5f457a7b42f43f001ddff00f?width=700'
+        clientAccessToken='123|456'
+        maxWidth={320}
+        hideCaption={false}
+        containerTagName='div'
+        protocol=''
+        injectScript
+        onLoading={() => {}}
+        onSuccess={() => {}}
+        onAfterRender={() => {}}
+        onFailure={() => {}}
+      />
     </div>
   );
 }

@@ -7,9 +7,15 @@
 }
 .app__posts {
   padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+.app_postsRight {
+  margin-left: 20px;
+  
 }
 .app__header {
-  background-color: whitesmoke;
+  background-color: white;
   padding: 20px;
   border-bottom: 2px solid lightgray;
   object-fit: contain;

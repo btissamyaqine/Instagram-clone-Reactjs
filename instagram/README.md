@@ -6,6 +6,7 @@
     + npm i firebase
     + npm install -g firebase-tools
     + npm i react-instagram-embed
+    + npm i -S react-flip-move
     
 
 # Getting Started with Create React App
